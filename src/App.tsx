@@ -5,7 +5,6 @@ import { About } from './components/About';
 import { Skills } from './components/Skills';
 import { Experience } from './components/Experience';
 import { Projects } from './components/Projects';
-import { TechTicker } from './components/TechTicker';
 import { Footer } from './components/Footer';
 import { InteractiveBackground } from './components/InteractiveBackground';
 
@@ -88,9 +87,6 @@ export default function App() {
           <Skills />
         </StackPage>
 
-        <StackPage zIndex={6}>
-          <TechTicker />
-        </StackPage>
       </main>
 
       <div className="relative z-[7] bg-[#020202]">
