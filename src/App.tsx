@@ -1,3 +1,4 @@
+import React, { useRef, useState, useEffect } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
@@ -7,6 +8,47 @@ import { Projects } from './components/Projects';
 import { TechTicker } from './components/TechTicker';
 import { Footer } from './components/Footer';
 import { InteractiveBackground } from './components/InteractiveBackground';
+
+const StackPage = ({ children, isFirst = false, zIndex }: { children: React.ReactNode, isFirst?: boolean, zIndex: number }) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const [top, setTop] = useState(0);
+
+  useEffect(() => {
+    if (!ref.current) return;
+
+    const updateTop = () => {
+      if (ref.current) {
+        const height = ref.current.offsetHeight;
+        const windowHeight = window.innerHeight;
+        if (height > windowHeight) {
+          setTop(windowHeight - height);
+        } else {
+          setTop(0);
+        }
+      }
+    };
+
+    const observer = new ResizeObserver(updateTop);
+    observer.observe(ref.current);
+    
+    window.addEventListener('resize', updateTop);
+    
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('resize', updateTop);
+    };
+  }, []);
+
+  return (
+    <div 
+      ref={ref} 
+      className={`sticky w-full ${isFirst ? '' : 'backdrop-blur-2xl bg-[#020202]/85 border-t border-white/5 shadow-[0_-20px_50px_rgba(0,0,0,0.5)]'}`}
+      style={{ top: `${top}px`, zIndex }}
+    >
+      {children}
+    </div>
+  );
+};
 
 export default function App() {
   return (
@@ -20,16 +62,40 @@ export default function App() {
 
       <Navbar />
       
-      <main>
-        <Hero />
-        <TechTicker />
-        <About />
-        <Experience />
-        <Projects />
-        <Skills />
+      <main className="relative flex flex-col">
+        <div id="home" className="w-full h-px pointer-events-none invisible" />
+        <StackPage zIndex={1} isFirst={true}>
+          <Hero />
+        </StackPage>
+
+        <div id="about" className="w-full h-px pointer-events-none invisible" />
+        <StackPage zIndex={2}>
+          <About />
+        </StackPage>
+
+        <div id="experience" className="w-full h-px pointer-events-none invisible" />
+        <StackPage zIndex={3}>
+          <Experience />
+        </StackPage>
+
+        <div id="projects" className="w-full h-px pointer-events-none invisible" />
+        <StackPage zIndex={4}>
+          <Projects />
+        </StackPage>
+
+        <div id="skills" className="w-full h-px pointer-events-none invisible" />
+        <StackPage zIndex={5}>
+          <Skills />
+        </StackPage>
+
+        <StackPage zIndex={6}>
+          <TechTicker />
+        </StackPage>
       </main>
 
-      <Footer />
+      <div className="relative z-[7] bg-[#020202]">
+        <Footer />
+      </div>
     </div>
   );
 }

@@ -1,5 +1,15 @@
 {
   "projects": {
     "default": "my-portfolio-8438d"
-  }
+  },
+  "targets": {
+    "my-portfolio-8438d": {
+      "hosting": {
+        "portfolio": [
+          "sethlokou-portfolio"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }

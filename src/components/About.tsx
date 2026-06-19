@@ -4,7 +4,7 @@ import { TextReveal } from './TextReveal';
 
 export const About = () => {
   return (
-    <section className="py-24 px-6 relative" id="about">
+    <section className="py-24 px-6 relative">
       <div className="max-w-7xl mx-auto">
         <div className="glass-panel p-8 md:p-12 lg:p-24 rounded-2xl relative overflow-hidden border-white/10">
           {/* Subtle decoration */}

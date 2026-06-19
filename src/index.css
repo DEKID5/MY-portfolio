@@ -10,6 +10,10 @@
   --color-glass-highlight: rgba(255, 255, 255, 0.15);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   @apply bg-zinc-950 text-zinc-200 font-sans antialiased overflow-x-hidden;
 }

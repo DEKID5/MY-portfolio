@@ -5,7 +5,7 @@ import { Calendar, Building2 } from 'lucide-react';
 
 export const Experience = () => {
   return (
-    <section className="py-24 px-6 relative" id="experience">
+    <section className="py-24 px-6 relative">
       <div className="max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

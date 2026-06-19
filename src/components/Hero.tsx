@@ -6,7 +6,7 @@ import { Download } from 'lucide-react';
 
 export const Hero = () => {
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center pt-24 pb-12 px-6" id="home">
+    <section className="relative min-h-[90vh] flex items-center justify-center pt-24 pb-12 px-6">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
