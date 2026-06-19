@@ -50,6 +50,19 @@ export const Experience = () => {
                   </ul>
                 </div>
               </div>
+
+              {/* Image for the empty side */}
+              <div className="hidden md:flex md:w-[calc(50%-2.5rem)] md:order-2 justify-center items-center h-full relative group-odd:pr-8 group-even:pl-8">
+                <img 
+                  src="/ide-setup.png" 
+                  alt="Coding IDE Setup" 
+                  className="w-full h-auto max-h-[400px] object-cover opacity-50 transition-opacity duration-700 hover:opacity-80"
+                  style={{ 
+                    maskImage: 'radial-gradient(ellipse at center, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 70%)', 
+                    WebkitMaskImage: 'radial-gradient(ellipse at center, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 70%)' 
+                  }}
+                />
+              </div>
             </motion.div>
           ))}
         </div>
