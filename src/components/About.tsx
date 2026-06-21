@@ -1,12 +1,13 @@
 import React from 'react';
 import { CV_DATA } from '../data';
 import { TextReveal } from './TextReveal';
+import { SpotlightCard } from './SpotlightCard';
 
 export const About = () => {
   return (
     <section className="py-24 px-6 relative">
       <div className="max-w-7xl mx-auto">
-        <div className="glass-panel p-8 md:p-12 lg:p-24 rounded-2xl relative overflow-hidden border-white/10">
+        <SpotlightCard className="p-8 md:p-12 lg:p-24 relative">
           {/* Subtle decoration */}
           <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-[100px]" />
           
@@ -23,7 +24,7 @@ export const About = () => {
               />
             </div>
           </div>
-        </div>
+        </SpotlightCard>
       </div>
     </section>
   );

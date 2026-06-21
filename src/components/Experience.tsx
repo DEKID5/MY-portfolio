@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { CV_DATA } from '../data';
 import { Calendar, Building2 } from 'lucide-react';
+import { SpotlightCard } from './SpotlightCard';
 
 export const Experience = () => {
   return (
@@ -30,7 +31,7 @@ export const Experience = () => {
               {/* Timeline dot */}
               <div className="flex items-center justify-center w-6 h-6 rounded-none border border-white/20 bg-[#020202] shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10" />
               
-              <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] glass-panel p-6 md:p-8 rounded-2xl relative">
+              <SpotlightCard className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 md:p-8">
                 <div className="flex flex-col space-y-6">
                   <div className="border-b border-white/10 pb-4">
                     <h3 className="text-xl font-bold text-white uppercase tracking-wider">{job.role}</h3>
@@ -49,7 +50,7 @@ export const Experience = () => {
                     ))}
                   </ul>
                 </div>
-              </div>
+              </SpotlightCard>
 
               {/* Image for the empty side */}
               <div className="hidden md:flex md:w-[calc(50%-2.5rem)] md:order-2 justify-center items-center h-full relative group-odd:pr-8 group-even:pl-8">

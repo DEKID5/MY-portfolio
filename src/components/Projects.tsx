@@ -3,6 +3,7 @@ import { motion } from 'motion/react';
 import { CV_DATA } from '../data';
 import { Code2 } from 'lucide-react';
 import { TextReveal } from './TextReveal';
+import { SpotlightCard } from './SpotlightCard';
 
 export const Projects = () => {
   return (
@@ -25,49 +26,56 @@ export const Projects = () => {
           {CV_DATA.projects.map((project, index) => (
             <div key={index} className="flex flex-col lg:flex-row gap-12 lg:gap-24 items-start relative">
               {/* Sticky Mockup / Visual Side */}
-              <div className="w-full lg:w-1/2 lg:sticky lg:top-32 h-[40vh] lg:h-[60vh] glass-panel rounded-2xl overflow-hidden flex items-center justify-center p-2 md:p-8 border-white/10 relative">
+              <div className="w-full lg:w-1/2 lg:sticky lg:top-24 h-[60vh] lg:h-[80vh] flex items-center justify-center">
                 
                 {project.link ? (
-                  <div className="w-full h-full relative rounded-xl overflow-hidden glass-panel border-white/10 flex flex-col bg-[#080808]">
-                    {/* Browser Bar */}
-                    <div className="h-8 border-b border-white/10 flex items-center px-4 space-x-2 shrink-0 bg-[#111]">
-                      <div className="w-2.5 h-2.5 rounded-full bg-zinc-600"></div>
-                      <div className="w-2.5 h-2.5 rounded-full bg-zinc-600"></div>
-                      <div className="w-2.5 h-2.5 rounded-full bg-zinc-600"></div>
-                      <div className="ml-4 px-2 py-1 bg-white/5 rounded text-[10px] font-mono text-zinc-500 truncate max-w-[200px]">
-                        {project.link.replace(/^https?:\/\//, '')}
-                      </div>
+                  <div className="relative h-full max-h-[850px] aspect-[9/19.5] rounded-[3rem] md:rounded-[3.5rem] overflow-visible border-[10px] md:border-[14px] border-[#0a0a0a] bg-black ring-1 ring-white/10 flex flex-col shadow-2xl shrink-0 mx-auto">
+                    {/* Dynamic Island / Notch area */}
+                    <div className="absolute top-2 inset-x-1/2 -translate-x-1/2 w-[30%] h-7 bg-[#0a0a0a] rounded-full z-20 flex items-center justify-end px-2">
+                      <div className="w-2.5 h-2.5 rounded-full bg-white/10 mr-1"></div>
                     </div>
+                    
+                    {/* Side Buttons */}
+                    <div className="absolute top-24 -left-[12px] md:-left-[16px] w-[3px] h-10 bg-[#1a1a1a] rounded-l-md z-0"></div>
+                    <div className="absolute top-40 -left-[12px] md:-left-[16px] w-[3px] h-16 bg-[#1a1a1a] rounded-l-md z-0"></div>
+                    <div className="absolute top-60 -left-[12px] md:-left-[16px] w-[3px] h-16 bg-[#1a1a1a] rounded-l-md z-0"></div>
+                    <div className="absolute top-36 -right-[12px] md:-right-[16px] w-[3px] h-20 bg-[#1a1a1a] rounded-r-md z-0"></div>
+
+                    {/* Home Indicator */}
+                    <div className="absolute bottom-2 inset-x-1/3 h-1.5 bg-white/50 rounded-full z-20 mix-blend-difference"></div>
+
                     {/* Content / iframe */}
-                    <div className="flex-1 relative bg-black">
+                    <div className="flex-1 relative bg-[#111] w-full h-full rounded-[2.5rem] md:rounded-[2.8rem] overflow-hidden isolate">
                       <iframe 
                         src={project.link} 
-                        className="absolute inset-0 w-full h-full border-0"
+                        className="absolute inset-y-0 left-0 w-[calc(100%+24px)] h-full border-0"
                         title={project.name}
                         loading="lazy"
                       />
                     </div>
                   </div>
                 ) : (
-                  <div className="relative w-full h-full border border-white/10 rounded-3xl flex flex-col items-center justify-center mb-0 overflow-hidden group">
-                    <div className="absolute inset-0 bg-[#020202] bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.08)_0%,transparent_70%)]" />
-                    
-                    {/* Demo abstract shapes */}
-                    <motion.div 
-                      initial={{ scale: 0.8, opacity: 0 }}
-                      whileInView={{ scale: 1, opacity: 1 }}
-                      transition={{ duration: 1 }}
-                      className="w-32 h-32 border border-white/20 rotate-45 flex items-center justify-center group-hover:rotate-90 transition-transform duration-1000 ease-out"
-                    >
-                      <div className="w-16 h-16 border border-white/40 -rotate-45 flex items-center justify-center">
-                         <Code2 className="w-6 h-6 text-white/50" />
-                      </div>
-                    </motion.div>
+                  <SpotlightCard className="w-full h-[40vh] lg:h-[60vh]">
+                    <div className="relative w-full h-full border border-white/10 rounded-3xl flex flex-col items-center justify-center mb-0 overflow-hidden group">
+                      <div className="absolute inset-0 bg-[#020202] bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.08)_0%,transparent_70%)]" />
+                      
+                      {/* Demo abstract shapes */}
+                      <motion.div 
+                        initial={{ scale: 0.8, opacity: 0 }}
+                        whileInView={{ scale: 1, opacity: 1 }}
+                        transition={{ duration: 1 }}
+                        className="w-32 h-32 border border-white/20 rotate-45 flex items-center justify-center group-hover:rotate-90 transition-transform duration-1000 ease-out"
+                      >
+                        <div className="w-16 h-16 border border-white/40 -rotate-45 flex items-center justify-center">
+                           <Code2 className="w-6 h-6 text-white/50" />
+                        </div>
+                      </motion.div>
 
-                    <div className="absolute bottom-6 left-6 font-mono text-sm text-zinc-500 uppercase tracking-widest">
-                      ID: PRJ-{index + 1}00
+                      <div className="absolute bottom-6 left-6 font-mono text-sm text-zinc-500 uppercase tracking-widest">
+                        ID: PRJ-{index + 1}00
+                      </div>
                     </div>
-                  </div>
+                  </SpotlightCard>
                 )}
               </div>
               

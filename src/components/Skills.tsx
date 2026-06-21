@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { CV_DATA } from '../data';
 import { Layers, Database, MonitorSmartphone, Bug, Box, Server } from 'lucide-react';
+import { SpotlightCard } from './SpotlightCard';
 
 const icons = {
   programming: <Box className="w-5 h-5 text-white" />,
@@ -39,27 +40,29 @@ export const Skills = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="glass-card p-6 rounded-2xl flex flex-col h-full"
+              className="h-full"
             >
-              <div className="flex items-center space-x-3 mb-6">
-                <div className="p-2 bg-[#111] rounded-md border border-white/10">
-                  {icons[category as keyof typeof icons]}
+              <SpotlightCard className="p-6 flex flex-col h-full">
+                <div className="flex items-center space-x-3 mb-6">
+                  <div className="p-2 bg-[#111] rounded-md border border-white/10">
+                    {icons[category as keyof typeof icons]}
+                  </div>
+                  <h3 className="font-semibold text-lg text-white uppercase tracking-widest text-sm">
+                    {formatTitle(category)}
+                  </h3>
                 </div>
-                <h3 className="font-semibold text-lg text-white uppercase tracking-widest text-sm">
-                  {formatTitle(category)}
-                </h3>
-              </div>
-              
-              <div className="flex flex-wrap gap-2 mt-auto">
-                {skills.map((skill) => (
-                  <span 
-                    key={skill} 
-                    className="px-3 py-1 text-sm bg-[#111] border border-white/10 rounded-md text-zinc-300 font-mono tracking-wider uppercase text-xs"
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
+                
+                <div className="flex flex-wrap gap-2 mt-auto">
+                  {skills.map((skill) => (
+                    <span 
+                      key={skill} 
+                      className="px-3 py-1 text-sm bg-[#111] border border-white/10 rounded-md text-zinc-300 font-mono tracking-wider uppercase text-xs"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </SpotlightCard>
             </motion.div>
           ))}
         </div>
