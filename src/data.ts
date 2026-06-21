@@ -47,6 +47,17 @@ export const CV_DATA = {
         "Designed and implemented a normalised relational database schema in SQL to support complex product, user, and transactional data requirements at scale.",
         "Engineered responsive, accessible UI components utilising HTML and JavaScript, ensuring a consistent and seamless user experience across all device form factors."
       ]
+    },
+    {
+      name: "AJ Pixel Portfolio",
+      technologies: ["React", "Firebase", "JavaScript", "HTML", "CSS"],
+      description: "A featured photography portfolio web application.",
+      link: "https://aj-pixel.web.app/",
+      details: [
+        "Architected a dynamic and responsive frontend interface using React to seamlessly showcase high-quality photography and visual assets.",
+        "Integrated Firebase for robust hosting, efficient asset delivery, and secure deployment.",
+        "Engineered smooth, high-refresh-rate compliant scrolling and interactive UI components to ensure an engaging user experience."
+      ]
     }
   ],
   skills: {
