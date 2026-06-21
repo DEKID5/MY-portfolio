@@ -64,9 +64,9 @@ export const CV_DATA = {
     programming: ["PHP", "JavaScript", "HTML", "CSS", "SQL"],
     frameworks: ["Laravel", "React", "Vite"],
     databases: ["MySQL", "SQL"],
-    qa: ["Software Testing", "Quality Assurance", "Bug Tracking", "Functional & Regression Testing"],
+    qa: ["Software Testing", "Quality Assurance", "Functional & Regression Testing"],
     infrastructure: ["PC & Server Administration", "Hardware Troubleshooting", "Technical Support & Maintenance"],
-    core: ["Full-Stack Web Development", "E-Commerce Solutions", "RESTful API Design", "Responsive UI Engineering", "Problem-Solving", "Cross-Functional Collaboration"]
+    core: ["Full-Stack Web Development", "E-Commerce Solutions", "Responsive UI Engineering", "Problem-Solving", "Cross-Functional Collaboration"]
   },
   socials: [
     { name: "LinkedIn", url: "https://linkedin.com/in/seth-lokou", icon: "Linkedin" },

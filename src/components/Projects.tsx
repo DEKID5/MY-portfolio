@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { CV_DATA } from '../data';
-import { Code2 } from 'lucide-react';
+import { Code2, ExternalLink } from 'lucide-react';
 import { TextReveal } from './TextReveal';
 import { SpotlightCard } from './SpotlightCard';
 
@@ -26,10 +26,11 @@ export const Projects = () => {
           {CV_DATA.projects.map((project, index) => (
             <div key={index} className="flex flex-col lg:flex-row gap-12 lg:gap-24 items-start relative">
               {/* Sticky Mockup / Visual Side */}
-              <div className="w-full lg:w-1/2 lg:sticky lg:top-24 h-[60vh] lg:h-[80vh] flex items-center justify-center">
+              <div className="w-full lg:w-1/2 lg:sticky lg:top-24 h-[60vh] lg:h-[80vh] flex flex-col items-center justify-center space-y-6">
                 
                 {project.link ? (
-                  <div className="relative h-full max-h-[850px] aspect-[9/19.5] rounded-[3rem] md:rounded-[3.5rem] overflow-visible border-[10px] md:border-[14px] border-[#0a0a0a] bg-black ring-1 ring-white/10 flex flex-col shadow-2xl shrink-0 mx-auto">
+                  <>
+                    <div className="relative h-full max-h-[800px] aspect-[9/19.5] rounded-[3rem] md:rounded-[3.5rem] overflow-visible border-[10px] md:border-[14px] border-[#0a0a0a] bg-black ring-1 ring-white/10 flex flex-col shadow-2xl shrink-0 mx-auto">
                     {/* Dynamic Island / Notch area */}
                     <div className="absolute top-2 inset-x-1/2 -translate-x-1/2 w-[30%] h-7 bg-[#0a0a0a] rounded-full z-20 flex items-center justify-end px-2">
                       <div className="w-2.5 h-2.5 rounded-full bg-white/10 mr-1"></div>
@@ -54,6 +55,17 @@ export const Projects = () => {
                       />
                     </div>
                   </div>
+                    
+                  <a 
+                    href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-6 py-3 rounded-xl border border-white/20 hover:bg-white/5 text-xs text-white font-mono uppercase tracking-widest hover-lift flex items-center shrink-0"
+                    >
+                      <ExternalLink className="w-4 h-4 mr-2" />
+                      Open Live Site
+                    </a>
+                  </>
                 ) : (
                   <SpotlightCard className="w-full h-[40vh] lg:h-[60vh]">
                     <div className="relative w-full h-full border border-white/10 rounded-3xl flex flex-col items-center justify-center mb-0 overflow-hidden group">
