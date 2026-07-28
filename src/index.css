@@ -75,8 +75,9 @@ body {
   pointer-events: none;
   overflow: hidden;
   background:
-    radial-gradient(circle at var(--pointer-x, 50%) var(--pointer-y, 50%), rgba(243, 80, 15, 0.16), transparent 24%),
-    linear-gradient(135deg, rgba(243, 80, 15, 0.04), transparent 45%);
+    radial-gradient(circle at var(--pointer-x, 50%) var(--pointer-y, 50%), rgba(255, 122, 24, 0.3), transparent 28%),
+    radial-gradient(ellipse at 67% 42%, rgba(243, 80, 15, 0.16), transparent 38%),
+    linear-gradient(135deg, rgba(243, 80, 15, 0.1), transparent 55%);
   transition: background 0.2s ease;
 }
 
@@ -84,10 +85,10 @@ body {
   content: "";
   position: absolute;
   inset: -20%;
-  opacity: 0.18;
+  opacity: 0.32;
   background-image:
-    linear-gradient(rgba(243, 80, 15, 0.24) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(243, 80, 15, 0.24) 1px, transparent 1px);
+    linear-gradient(rgba(255, 111, 22, 0.42) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 111, 22, 0.42) 1px, transparent 1px);
   background-size: 72px 72px;
   transform: perspective(520px) rotateX(58deg) translateY(var(--scroll-depth, 0px));
   transform-origin: center bottom;
@@ -97,8 +98,8 @@ body {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(90deg, transparent 49.8%, rgba(243, 80, 15, 0.22) 50%, transparent 50.2%),
-    linear-gradient(transparent 49.8%, rgba(243, 80, 15, 0.22) 50%, transparent 50.2%);
+    linear-gradient(90deg, transparent 49.8%, rgba(255, 111, 22, 0.32) 50%, transparent 50.2%),
+    linear-gradient(transparent 49.8%, rgba(255, 111, 22, 0.32) 50%, transparent 50.2%);
   background-size: 180px 180px;
   mask-image: radial-gradient(ellipse at var(--pointer-x, 50%) var(--pointer-y, 50%), black, transparent 68%);
   transform: translate3d(calc((var(--pointer-x, 50%) - 50%) * -0.04), calc((var(--pointer-y, 50%) - 50%) * -0.04), 0);
@@ -108,10 +109,10 @@ body {
   position: absolute;
   left: 67%;
   top: 42%;
-  border: 1px solid rgba(243, 80, 15, 0.26);
+  border: 1px solid rgba(255, 111, 22, 0.5);
   border-radius: 50%;
   transform: translate(-50%, -50%) rotate(-18deg);
-  box-shadow: 0 0 32px rgba(243, 80, 15, 0.08);
+  box-shadow: 0 0 40px rgba(243, 80, 15, 0.2);
 }
 
 .sci-fi-orbit-one {
@@ -123,7 +124,7 @@ body {
   width: min(48vw, 650px);
   height: min(16vw, 210px);
   transform: translate(-50%, -50%) rotate(34deg);
-  border-color: rgba(251, 143, 16, 0.2);
+  border-color: rgba(255, 157, 34, 0.42);
 }
 
 .sci-fi-core {
@@ -134,14 +135,14 @@ body {
   height: 10px;
   transform: translate(-50%, -50%);
   border-radius: 50%;
-  background: #fb8f10;
-  box-shadow: 0 0 0 8px rgba(243, 80, 15, 0.08), 0 0 32px 8px rgba(243, 80, 15, 0.48);
+  background: #ff8a1f;
+  box-shadow: 0 0 0 8px rgba(243, 80, 15, 0.16), 0 0 42px 12px rgba(243, 80, 15, 0.72);
 }
 
 .sci-fi-core span {
   position: absolute;
   inset: -18px;
-  border: 1px solid rgba(243, 80, 15, 0.35);
+  border: 1px solid rgba(255, 138, 31, 0.62);
   border-radius: 50%;
   animation: loader-pulse 2.8s ease-out infinite;
 }
@@ -167,7 +168,7 @@ body {
 }
 
 .sci-fi-status b {
-  color: rgba(243, 80, 15, 0.72);
+  color: rgba(255, 143, 35, 0.95);
   font-weight: 500;
 }
 
@@ -175,8 +176,8 @@ body {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #fb8f10;
-  box-shadow: 0 0 10px #fb8f10;
+  background: #ff8a1f;
+  box-shadow: 0 0 14px #ff8a1f;
 }
 
 @keyframes loader-pulse {
