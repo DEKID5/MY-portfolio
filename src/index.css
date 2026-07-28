@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Rajdhani", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Rajdhani", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Inter", ui-sans-serif, system-ui, sans-serif;
   
   --color-j-black: #000000;
   --color-j-white: #ffffff;
@@ -47,7 +47,7 @@ html {
 }
 
 body {
-  font-family: "Rajdhani", ui-sans-serif, system-ui, sans-serif;
+  font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
   @apply bg-black text-white antialiased overflow-x-hidden;
   font-size: 18px;
   line-height: 1.55;
@@ -71,9 +71,30 @@ body {
 .ambient-glow {
   position: fixed;
   inset: 0;
-  z-index: -2;
+  z-index: 0;
   pointer-events: none;
   overflow: hidden;
+}
+
+.ambient-glow::marker {
+  display: none;
+}
+
+.ambient-glow {
+  background:
+    repeating-conic-gradient(
+      from 8deg at 78% 44%,
+      transparent 0deg 11deg,
+      rgba(243, 80, 15, 0.12) 11.3deg 11.7deg,
+      transparent 12deg 22deg
+    ),
+    repeating-radial-gradient(
+      ellipse at 78% 44%,
+      transparent 0 58px,
+      rgba(243, 80, 15, 0.1) 59px 60px,
+      transparent 61px 118px
+    );
+  opacity: 0.7;
 }
 
 .ambient-glow::before,
@@ -258,7 +279,7 @@ body {
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   padding: 0 0 12px 0;
   color: #fff;
-  font-family: "Rajdhani", sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 16px;
   outline: none;
   transition: border-color 0.3s ease;
@@ -412,71 +433,24 @@ body {
 
 .right-nav {
   position: fixed;
-  right: 48px;
-  padding: 4px;
-  border-radius: 28px;
+  right: 18px;
+  padding: 8px 5px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
   top: 50%;
   transform: translateY(-50%);
-  background-color: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(24px);
+  background-color: rgba(17, 17, 17, 0.86);
+  backdrop-filter: blur(18px);
   display: flex;
   flex-direction: column;
   z-index: 100;
-  width: 58px;
-  overflow: hidden;
-  transition: opacity 0.3s ease, width 0.35s ease, background-color 0.35s ease;
-}
-
-.right-nav.is-open {
-  width: min(46vw, 420px);
-  background-color: rgba(17, 17, 17, 0.96);
-}
-
-.right-nav-toggle {
-  width: 50px;
-  height: 50px;
-  flex: 0 0 50px;
-  margin-left: auto;
-  border: 0;
-  border-radius: 50%;
-  background: #fff;
-  color: #111;
-  cursor: pointer;
-  font-size: 25px;
-}
-
-.nav-close {
-  font-size: 32px;
-  font-weight: 300;
-}
-
-.right-nav-drawer {
-  width: 100%;
-  padding: 22px;
-  opacity: 0;
-  transform: translateX(18px);
-  pointer-events: none;
-  transition: opacity 0.2s ease 0.08s, transform 0.25s ease 0.08s;
-}
-
-.right-nav.is-open .right-nav-drawer {
-  opacity: 1;
-  transform: translateX(0);
-  pointer-events: auto;
-}
-
-.right-nav-drawer-title {
-  color: rgba(255,255,255,0.45);
-  font-size: 0.7rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  margin-bottom: 12px;
+  width: 62px;
 }
 
 .right-nav-list {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 14px;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -490,37 +464,21 @@ body {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  font-size: 24px;
-  color: #fff;
+  font-size: 21px;
+  color: rgba(255, 255, 255, 0.5);
   transition: all 0.3s ease;
 }
 
-.right-nav.is-open .right-nav-list {
-  gap: 4px;
-}
-
-.right-nav.is-open .right-nav a {
-  width: 100%;
-  height: 54px;
-  justify-content: flex-start;
-  gap: 16px;
-  padding: 0 16px;
+.right-nav a.active {
+  background-color: #fff;
+  color: #111;
   border-radius: 14px;
-  font-size: 18px;
-}
-
-.right-nav.is-open .right-nav a .tooltip {
-  position: static;
-  opacity: 1;
-  visibility: visible;
-  transform: none;
-  padding: 0;
-  background: transparent;
-  font-size: 1rem;
+  box-shadow: 0 5px 18px rgba(255, 255, 255, 0.12);
 }
 
 .right-nav a:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #fff;
 }
 
 .right-nav a:hover .tooltip {
@@ -528,15 +486,9 @@ body {
   visibility: visible;
 }
 
-.right-nav a.active {
-  background-color: #fff;
-  color: #000000;
-  transition-delay: 0.2s;
-}
-
 .right-nav a .tooltip {
   position: absolute;
-  right: 62px;
+  right: 70px;
   top: 50%;
   transform: translateY(-50%);
   opacity: 0;
@@ -567,6 +519,8 @@ body {
   margin-left: 0;
   padding: 98px 0 0;
   min-height: 100vh;
+  position: relative;
+  z-index: 1;
 }
 
 .scroll-reveal {
@@ -608,11 +562,19 @@ body {
 }
 
 @media (max-width: 1279px) {
-  .right-nav {
-    display: none;
-  }
   .main-content {
     padding: 50px 0 0;
+  }
+  .right-nav {
+    right: 8px;
+    width: 56px;
+  }
+  .right-nav-list {
+    gap: 8px;
+  }
+  .right-nav a {
+    width: 46px;
+    height: 46px;
   }
 }
 
@@ -970,6 +932,19 @@ body {
 
 @media (max-width: 899px) {
   .right-nav {
+    right: 8px;
+    padding: 6px 4px;
+    width: 52px;
+  }
+  .right-nav-list {
+    gap: 6px;
+  }
+  .right-nav a {
+    width: 42px;
+    height: 42px;
+    font-size: 18px;
+  }
+  .mobile-navbar {
     display: none;
   }
   .footer .contact-shell,
