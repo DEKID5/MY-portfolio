@@ -3,10 +3,9 @@ import { Home, Briefcase, Layers, User, Wrench, Mail, X, Menu } from 'lucide-rea
 
 const menuItems = [
   { id: 'home', label: 'Home', icon: Home },
-  { id: 'experience', label: 'Experience', icon: Briefcase },
-  { id: 'projects', label: 'Selected Works', icon: Layers },
-  { id: 'skills', label: 'Services', icon: Wrench },
   { id: 'about', label: 'About', icon: User },
+  { id: 'experience', label: 'Experience', icon: Briefcase },
+  { id: 'projects', label: 'Featured Works', icon: Layers },
   { id: 'contact', label: 'Contact', icon: Mail },
 ];
 

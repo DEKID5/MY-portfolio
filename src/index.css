@@ -524,6 +524,47 @@ body {
   }
 }
 
+@media (min-width: 900px) and (max-width: 1279px) {
+  .left-sidebar {
+    left: 24px;
+    max-width: 280px;
+    padding: 24px 20px;
+  }
+  .left-sidebar .heading {
+    margin-bottom: 24px;
+    gap: 10px;
+  }
+  .left-sidebar .heading > div:first-child {
+    font-size: 0.95rem;
+  }
+  .left-sidebar .box-status {
+    font-size: 0.7rem;
+  }
+  .left-sidebar .avatar-wrap {
+    max-width: 240px;
+  }
+  .left-sidebar .infor h6 {
+    font-size: 0.85rem;
+  }
+  .left-sidebar .social-links {
+    margin-bottom: 28px;
+  }
+  .main-content {
+    margin-left: 330px;
+    margin-right: 24px;
+  }
+}
+
+@media (max-width: 899px) {
+  .left-sidebar {
+    display: none;
+  }
+  .main-content {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
 .section-hero {
   padding: 98px 0 193px;
   position: relative;
@@ -650,7 +691,9 @@ body {
 
 .project-preview-frame {
   position: relative;
-  height: clamp(260px, 38vw, 440px);
+  width: 100%;
+  min-height: 320px;
+  height: clamp(320px, 38vw, 440px);
   overflow: hidden;
   background: #080808;
 }
@@ -759,6 +802,10 @@ body {
   }
   .indicators .indicators-item {
     width: 100%;
+  }
+  .project-preview-frame {
+    min-height: 240px;
+    height: 62vw;
   }
   .accordion-head .icon {
     display: none;

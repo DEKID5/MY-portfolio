@@ -11,7 +11,7 @@ const socialIcons: Record<string, React.ReactNode> = {
 
 export const Sidebar = () => {
   return (
-    <aside className="left-sidebar hidden xl:flex">
+    <aside className="left-sidebar">
       <div className="heading">
         <div className="text-xl font-bold tracking-widest uppercase text-white">
           Seth<span className="gradient-text">Codes</span>

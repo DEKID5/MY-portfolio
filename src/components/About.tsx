@@ -1,5 +1,6 @@
 import React from 'react';
 import { CV_DATA } from '../data';
+import { Skills } from './Skills';
 
 export const About = () => {
   return (
@@ -17,7 +18,7 @@ export const About = () => {
           </div>
         </div>
       </div>
-
+      <Skills />
     </section>
   );
 };
