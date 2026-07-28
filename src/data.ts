@@ -19,23 +19,6 @@ export const CV_DATA = {
       ]
     }
   ],
-  education: [
-    {
-      degree: "Bachelor of Science in Information Technology",
-      institution: "Ghana Communication Technology University (GCTU), Accra",
-      period: "2022 – 2026 (Expected)"
-    },
-    {
-      degree: "West African Senior School Certificate (WASSCE)",
-      institution: "Saint Thomas Aquinas Senior High School",
-      period: ""
-    },
-    {
-      degree: "Basic Education Certificate Examination (BECE)",
-      institution: "Adenta Community Junior High School",
-      period: ""
-    }
-  ],
   projects: [
     {
       name: "E-Commerce Web Application",
