@@ -72,7 +72,7 @@ export const Footer = () => {
         </a>
       </div>
 
-      <div className="max-w-[890px] mx-auto px-4 md:px-6 lg:px-8 py-24">
+      <div className="contact-shell max-w-[890px] mx-auto px-4 md:px-6 lg:px-8 py-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* Left: Contact Info */}
           <div className="flex flex-col">
@@ -217,7 +217,7 @@ export const Footer = () => {
       </div>
 
       {/* Bottom Bar */}
-      <div className="max-w-[890px] mx-auto px-4 md:px-6 lg:px-8 py-6 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-xs text-white/40 uppercase tracking-widest gap-4">
+      <div className="contact-bottom max-w-[890px] mx-auto px-4 md:px-6 lg:px-8 py-6 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-xs text-white/40 uppercase tracking-widest gap-4">
         <p>Copyright © 2026 and designed by SETHCODES</p>
         <p className="flex items-center">
           <span className="w-1.5 h-1.5 rounded-full bg-white/40 mr-2" />

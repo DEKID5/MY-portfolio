@@ -12,6 +12,7 @@ const navItems = [
 export const RightNav = () => {
   const [activeSection, setActiveSection] = useState('home');
   const [isVisible, setIsVisible] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,8 +39,18 @@ export const RightNav = () => {
   }, []);
 
   return (
-    <nav className={`right-nav ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-      <ul className="right-nav-list">
+    <nav className={`right-nav ${isVisible ? 'opacity-100' : 'opacity-0'} ${isOpen ? 'is-open' : ''}`}>
+      <button
+        className="right-nav-toggle"
+        onClick={() => setIsOpen((open) => !open)}
+        aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
+        aria-expanded={isOpen}
+      >
+        {isOpen ? <span className="nav-close">×</span> : <span className="nav-grid">⌘</span>}
+      </button>
+      <div className="right-nav-drawer">
+        <div className="right-nav-drawer-title">Navigate</div>
+        <ul className="right-nav-list">
         {navItems.map((item) => {
           const Icon = item.icon;
           const isActive = activeSection === item.id;
@@ -49,6 +60,7 @@ export const RightNav = () => {
                 href={`#${item.id}`}
                 className={isActive ? 'active' : ''}
                 aria-label={item.label}
+                onClick={() => setIsOpen(false)}
               >
                 <Icon className="w-5 h-5" />
                 <span className="tooltip text-xs">{item.label}</span>
@@ -56,7 +68,8 @@ export const RightNav = () => {
             </li>
           );
         })}
-      </ul>
+        </ul>
+      </div>
     </nav>
   );
 };

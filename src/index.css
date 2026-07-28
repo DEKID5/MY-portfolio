@@ -404,22 +404,69 @@ body {
   position: fixed;
   right: 48px;
   padding: 4px;
-  border-radius: 999px;
+  border-radius: 28px;
   top: 50%;
   transform: translateY(-50%);
   background-color: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(24px);
   display: flex;
   flex-direction: column;
-  gap: 12px;
   z-index: 100;
-  transition: opacity 0.3s ease;
+  width: 58px;
+  overflow: hidden;
+  transition: opacity 0.3s ease, width 0.35s ease, background-color 0.35s ease;
+}
+
+.right-nav.is-open {
+  width: min(46vw, 420px);
+  background-color: rgba(17, 17, 17, 0.96);
+}
+
+.right-nav-toggle {
+  width: 50px;
+  height: 50px;
+  flex: 0 0 50px;
+  margin-left: auto;
+  border: 0;
+  border-radius: 50%;
+  background: #fff;
+  color: #111;
+  cursor: pointer;
+  font-size: 25px;
+}
+
+.nav-close {
+  font-size: 32px;
+  font-weight: 300;
+}
+
+.right-nav-drawer {
+  width: 100%;
+  padding: 22px;
+  opacity: 0;
+  transform: translateX(18px);
+  pointer-events: none;
+  transition: opacity 0.2s ease 0.08s, transform 0.25s ease 0.08s;
+}
+
+.right-nav.is-open .right-nav-drawer {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
+.right-nav-drawer-title {
+  color: rgba(255,255,255,0.45);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
 }
 
 .right-nav-list {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 6px;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -436,6 +483,30 @@ body {
   font-size: 24px;
   color: #fff;
   transition: all 0.3s ease;
+}
+
+.right-nav.is-open .right-nav-list {
+  gap: 4px;
+}
+
+.right-nav.is-open .right-nav a {
+  width: 100%;
+  height: 54px;
+  justify-content: flex-start;
+  gap: 16px;
+  padding: 0 16px;
+  border-radius: 14px;
+  font-size: 18px;
+}
+
+.right-nav.is-open .right-nav a .tooltip {
+  position: static;
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  padding: 0;
+  background: transparent;
+  font-size: 1rem;
 }
 
 .right-nav a:hover {
@@ -486,6 +557,17 @@ body {
   margin-left: 0;
   padding: 98px 0 0;
   min-height: 100vh;
+}
+
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.scroll-reveal.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 @media (min-width: 1701px) {
@@ -743,6 +825,32 @@ body {
   position: relative;
 }
 
+.contact-shell .j-card {
+  height: 100%;
+}
+
+.mobile-navbar {
+  display: none;
+}
+
+@media (min-width: 1280px) and (max-width: 1700px) {
+  .footer .contact-shell,
+  .footer .contact-bottom {
+    margin-left: 400px;
+    margin-right: 100px;
+    max-width: 890px;
+  }
+}
+
+@media (min-width: 1701px) {
+  .footer .contact-shell,
+  .footer .contact-bottom {
+    margin-left: 480px;
+    margin-right: 120px;
+    max-width: 890px;
+  }
+}
+
 .marquee-cta {
   overflow: hidden;
   background: rgb(17, 17, 17);
@@ -782,6 +890,41 @@ body {
 }
 
 @media (max-width: 768px) {
+  body {
+    padding-bottom: 76px;
+  }
+  .mobile-navbar {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    z-index: 120;
+    padding: 8px 6px;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 22px;
+    background: rgba(17,17,17,0.92);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.45);
+    backdrop-filter: blur(18px);
+  }
+  .mobile-navbar a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    min-width: 56px;
+    padding: 5px 7px;
+    color: rgba(255,255,255,0.62);
+    font-size: 0.62rem;
+    line-height: 1.1;
+    text-decoration: none;
+  }
+  .mobile-navbar a:hover,
+  .mobile-navbar a:focus-visible {
+    color: #fff;
+  }
   .section-hero {
     padding: 60px 0 100px;
   }
@@ -813,4 +956,27 @@ body {
   .accordion-item.collapsed .accordion-head .title {
     margin-left: 0;
   }
+}
+
+@media (max-width: 899px) {
+  .right-nav {
+    display: none;
+  }
+  .footer .contact-shell,
+  .footer .contact-bottom {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 890px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .scroll-reveal,
+  .scroll-reveal.is-revealed {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .animate-marquee { animation: none; }
 }
