@@ -7,13 +7,24 @@ import { Experience } from './components/Experience';
 import { Projects } from './components/Projects';
 import { About } from './components/About';
 import { Footer } from './components/Footer';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function App() {
+  const [isContactVisible, setIsContactVisible] = useState(false);
+
   useEffect(() => {
     const sections = document.querySelectorAll<HTMLElement>('main section, .footer');
     const observer = new IntersectionObserver(
-      (entries) => entries.forEach((entry) => entry.isIntersecting && entry.target.classList.add('is-revealed')),
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-revealed');
+          }
+          if (entry.target.id === 'contact') {
+            setIsContactVisible(entry.isIntersecting);
+          }
+        });
+      },
       { threshold: 0.08, rootMargin: '0px 0px -8% 0px' },
     );
     sections.forEach((section) => {
@@ -29,7 +40,7 @@ export default function App() {
       <div className="ambient-glow" />
       
       {/* Left profile sidebar */}
-      <Sidebar />
+      <Sidebar isContactVisible={isContactVisible} />
       
       {/* Right floating navigation */}
       <RightNav />

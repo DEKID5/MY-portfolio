@@ -9,9 +9,9 @@ const socialIcons: Record<string, React.ReactNode> = {
   Instagram: <Instagram className="w-5 h-5" />,
 };
 
-export const Sidebar = () => {
+export const Sidebar = ({ isContactVisible = false }: { isContactVisible?: boolean }) => {
   return (
-    <aside className="left-sidebar">
+    <aside className={`left-sidebar ${isContactVisible ? 'is-contact-visible' : ''}`}>
       <div className="heading">
         <div className="text-xl font-bold tracking-widest uppercase text-white">
           Seth<span className="gradient-text">Codes</span>

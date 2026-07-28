@@ -296,6 +296,16 @@ body {
   overflow-y: auto;
   flex-direction: column;
   align-items: center;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.55s ease, transform 0.55s ease, visibility 0.55s ease;
+}
+
+.left-sidebar.is-contact-visible {
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(-18px, -50%);
+  pointer-events: none;
 }
 
 .left-sidebar::-webkit-scrollbar {
