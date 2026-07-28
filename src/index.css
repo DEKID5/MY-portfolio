@@ -610,6 +610,83 @@ body {
   overflow: hidden;
 }
 
+.project-marquee {
+  overflow: hidden;
+  background: #111111;
+  box-shadow: 0px 0px 20px 0px rgba(103, 103, 103, 0.25) inset;
+  padding: 28px 0;
+  border-radius: 24px;
+  margin-bottom: 24px;
+}
+
+.project-marquee .animate-marquee {
+  align-items: center;
+  gap: 32px;
+  white-space: nowrap;
+}
+
+.project-marquee span {
+  color: #fff;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 500;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.project-marquee i {
+  width: 24px;
+  height: 24px;
+  display: block;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--j-gradient2);
+}
+
+.project-preview {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.project-preview-frame {
+  position: relative;
+  height: clamp(260px, 38vw, 440px);
+  overflow: hidden;
+  background: #080808;
+}
+
+.project-preview-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: #fff;
+  transform-origin: top left;
+}
+
+.project-preview-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.58);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.8rem;
+  pointer-events: none;
+}
+
+.project-preview:hover .project-preview-overlay,
+.project-preview:focus-visible .project-preview-overlay {
+  opacity: 1;
+}
+
 .works-wrap .works-item .content {
   padding: 32px 40px;
 }

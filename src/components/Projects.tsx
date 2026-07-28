@@ -12,19 +12,40 @@ export const Projects = () => {
         Featured Projects
       </h2>
 
+      <div className="project-marquee" aria-hidden="true">
+        <div className="animate-marquee">
+          {[...Array(4)].map((_, index) => (
+            <React.Fragment key={index}>
+              <span>Selected Work</span>
+              <i />
+            </React.Fragment>
+          ))}
+        </div>
+      </div>
+
       <div className="works-wrap space-y-6">
         {CV_DATA.projects.map((project, index) => (
           <div key={index} className="works-item j-card overflow-hidden group">
-            <div className="image relative">
-              <div className="aspect-video bg-gradient-to-br from-neutral-900 to-neutral-800 relative overflow-hidden">
-                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(243,80,15,0.15)_0%,transparent_70%)]" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-6xl md:text-8xl font-bold gradient-text opacity-20 uppercase tracking-tight">
-                    {String(index + 1).padStart(2, '0')}
-                  </div>
+            <a
+              className="project-preview"
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Open ${project.name}`}
+            >
+              <div className="project-preview-frame">
+                <iframe
+                  src={project.link}
+                  title={`${project.name} live preview`}
+                  loading="lazy"
+                  tabIndex={-1}
+                />
+                <div className="project-preview-overlay">
+                  <span>Open live site</span>
+                  <ArrowUpRight className="w-5 h-5" />
                 </div>
               </div>
-            </div>
+            </a>
 
             <div className="content p-6 md:p-8">
               <div className="infor text-sm text-white/50 uppercase tracking-widest mb-3">
@@ -74,10 +95,10 @@ export const Projects = () => {
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-links inline-flex items-center gap-3 px-5 py-3 border border-white/15 rounded-full text-sm uppercase tracking-widest hover:text-j-primary hover:border-j-primary transition-colors"
+                className="btn-links inline-flex items-center gap-3 px-5 py-3 bg-white text-black rounded-full text-sm uppercase tracking-widest hover:bg-j-primary hover:text-white transition-colors"
               >
                 <ExternalLink className="w-4 h-4" />
-                Open Live Site
+                Visit Live Site
               </a>
             </div>
           </div>
