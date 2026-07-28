@@ -1,0 +1,8 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "17XWaM1JHVYh_RqRaS0ut"
+uri = "file://screenshots/portfolio-redesign.jpg"
+type = "image"
+title = "Portfolio redesign preview"
