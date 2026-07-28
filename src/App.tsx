@@ -7,12 +7,41 @@ import { Experience } from './components/Experience';
 import { Projects } from './components/Projects';
 import { About } from './components/About';
 import { Footer } from './components/Footer';
+import { SciFiBackground } from './components/SciFiBackground';
 import { useEffect, useState } from 'react';
 
 export default function App() {
   const [isContactVisible, setIsContactVisible] = useState(false);
 
   useEffect(() => {
+    let frame = 0;
+    let targetX = 50;
+    let targetY = 50;
+    let currentX = 50;
+    let currentY = 50;
+
+    const renderBackgroundMotion = () => {
+      currentX += (targetX - currentX) * 0.08;
+      currentY += (targetY - currentY) * 0.08;
+      document.documentElement.style.setProperty('--pointer-x', `${currentX}%`);
+      document.documentElement.style.setProperty('--pointer-y', `${currentY}%`);
+      frame = requestAnimationFrame(renderBackgroundMotion);
+    };
+
+    const handlePointer = (event: PointerEvent) => {
+      targetX = (event.clientX / window.innerWidth) * 100;
+      targetY = (event.clientY / window.innerHeight) * 100;
+    };
+
+    const handleScroll = () => {
+      document.documentElement.style.setProperty('--scroll-depth', `${window.scrollY * 0.08}px`);
+    };
+
+    window.addEventListener('pointermove', handlePointer, { passive: true });
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+    frame = requestAnimationFrame(renderBackgroundMotion);
+
     const sections = document.querySelectorAll<HTMLElement>('main section, .footer');
     const observer = new IntersectionObserver(
       (entries) => {
@@ -31,13 +60,17 @@ export default function App() {
       section.classList.add('scroll-reveal');
       observer.observe(section);
     });
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      cancelAnimationFrame(frame);
+      window.removeEventListener('pointermove', handlePointer);
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   return (
     <div className="min-h-screen bg-black text-white relative">
-      {/* Ambient background glow */}
-      <div className="ambient-glow" />
+      <SciFiBackground />
       
       {/* Left profile sidebar */}
       <Sidebar isContactVisible={isContactVisible} />

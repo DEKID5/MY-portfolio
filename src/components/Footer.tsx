@@ -48,30 +48,6 @@ export const Footer = () => {
 
   return (
     <footer className="footer relative overflow-hidden" id="contact">
-      {/* CTA Marquee */}
-      <div className="marquee-cta">
-        <a href={`mailto:${CV_DATA.email}`} className="marquee-track">
-          <div className="animate-marquee">
-            {[...Array(4)].map((_, i) => (
-              <React.Fragment key={i}>
-                <div className="marquee-child-item">
-                  <div className="text-6xl md:text-8xl font-bold uppercase tracking-tight">Contact Me</div>
-                </div>
-                <div className="marquee-child-item">
-                  <div className="dot" />
-                </div>
-                <div className="marquee-child-item">
-                  <div className="text-6xl md:text-8xl font-bold uppercase tracking-tight">Hire Me</div>
-                </div>
-                <div className="marquee-child-item">
-                  <div className="dot" />
-                </div>
-              </React.Fragment>
-            ))}
-          </div>
-        </a>
-      </div>
-
       <div className="contact-shell max-w-[890px] mx-auto px-4 md:px-6 lg:px-8 py-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* Left: Contact Info */}
