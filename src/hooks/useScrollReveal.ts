@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef, RefObject } from 'react';
 
-export function useScrollReveal(options = { threshold: 0.15, triggerOnce: true }): [RefObject<HTMLDivElement>, boolean] {
+export function useScrollReveal(triggerOnce = false, rootMargin = '0px 0px -50px 0px'): [RefObject<HTMLDivElement>, boolean] {
   const [isVisible, setIsVisible] = useState(false);
   const elementRef = useRef<HTMLDivElement>(null);
 
@@ -8,18 +8,20 @@ export function useScrollReveal(options = { threshold: 0.15, triggerOnce: true }
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) {
         setIsVisible(true);
-        if (options.triggerOnce && elementRef.current) {
+        if (triggerOnce && elementRef.current) {
           observer.unobserve(elementRef.current);
         }
+      } else if (!triggerOnce) {
+        setIsVisible(false);
       }
-    }, options);
+    }, { rootMargin, threshold: 0 });
 
     if (elementRef.current) {
       observer.observe(elementRef.current);
     }
 
     return () => observer.disconnect();
-  }, [options.threshold, options.triggerOnce]);
+  }, [triggerOnce, rootMargin]);
 
   return [elementRef, isVisible];
 }

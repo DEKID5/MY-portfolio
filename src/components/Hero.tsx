@@ -45,7 +45,7 @@ export const Hero = () => {
             <img 
               src="/images/IMG_2537.JPG.jpeg" 
               alt={CV_DATA.name} 
-              className="relative z-10 w-full h-auto object-cover grayscale hover:grayscale-0 transition-all duration-700 ease-in-out"
+              className="relative z-10 w-full h-auto object-cover transition-all duration-700 ease-in-out"
               style={{
                 maskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)',
                 WebkitMaskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)'
