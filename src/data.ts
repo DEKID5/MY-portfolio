@@ -55,5 +55,28 @@ export const CV_DATA = {
     { name: "LinkedIn", url: "https://linkedin.com/in/seth-lokou", icon: "Linkedin" },
     { name: "GitHub", url: "https://github.com/sethinolokou", icon: "Github" },
     { name: "Instagram", url: "https://instagram.com/sethlokou", icon: "Instagram" }
+  ],
+  testimonials: [
+    {
+      name: "John Methcel",
+      title: "Business Owner",
+      quote: "Seth is an incredible developer. He was able to take our complex requirements and turn them into a beautiful, functional e-commerce platform. His attention to detail is unmatched.",
+      rating: 5,
+      image: "https://i.pravatar.cc/150?img=11"
+    },
+    {
+      name: "Sarah Jenkins",
+      title: "Project Manager",
+      quote: "Working with Seth was a breeze. He consistently delivered high-quality code on time and was always proactive about solving potential issues before they became problems.",
+      rating: 5,
+      image: "https://i.pravatar.cc/150?img=5"
+    },
+    {
+      name: "David Chen",
+      title: "Startup Founder",
+      quote: "The React portfolio Seth built for me exceeded all expectations. It's fast, responsive, and looks exactly like the design files. Highly recommended for any frontend work.",
+      rating: 5,
+      image: "https://i.pravatar.cc/150?img=33"
+    }
   ]
 };

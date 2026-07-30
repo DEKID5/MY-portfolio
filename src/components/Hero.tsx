@@ -1,87 +1,60 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { CV_DATA } from '../data';
-
-const skillTags = [
-  ...CV_DATA.skills.programming.slice(0, 2),
-  ...CV_DATA.skills.frameworks.slice(0, 2),
-  'Full-Stack Development',
-  'E-Commerce Solutions',
-];
+import { Play } from 'lucide-react';
+import { AnimatedSection } from './AnimatedSection';
 
 export const Hero = () => {
-  const [time, setTime] = useState('');
-
-  useEffect(() => {
-    const updateTime = () => {
-      const now = new Date();
-      const timeString = now.toLocaleTimeString('en-US', {
-        hour: '2-digit',
-        minute: '2-digit',
-        hour12: true,
-        timeZone: 'Africa/Accra',
-      });
-      setTime(`${CV_DATA.location} ${timeString}`);
-    };
-    updateTime();
-    const interval = setInterval(updateTime, 60000);
-    return () => clearInterval(interval);
-  }, []);
-
   return (
-    <section className="section-hero" id="home">
-      <div className="icon-gradient" />
-      <div className="infor dot-before text-sm text-white/70 mb-8 uppercase tracking-widest">
-        {time}
-      </div>
+    <section className="min-h-[85vh] flex flex-col justify-center relative pb-20 pt-20" id="home">
+      
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        {/* Left Content */}
+        <AnimatedSection className="w-full lg:w-7/12 flex flex-col items-center lg:items-start text-center lg:text-left z-10 lg:pl-12">
+          {/* Tag */}
+          <div className="flex items-center gap-3 mb-8">
+            <span className="w-8 h-[2px] bg-white/20 hidden lg:block"></span>
+            <p className="text-white/60 tracking-[0.2em] text-sm md:text-base font-medium uppercase">
+              {CV_DATA.role}
+            </p>
+          </div>
 
-      <div className="main-title">
-        <div className="text-sm dot-before subtitle text-white/70 uppercase tracking-widest mb-6">
-          Introduction
-        </div>
-        <h1 className="title text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold uppercase tracking-tight leading-none mb-6">
-          {CV_DATA.name}
-        </h1>
-        <div className="text-body-2 text-white/70 text-lg md:text-xl max-w-2xl leading-relaxed mb-8">
-          {CV_DATA.title} specializing in modern, scalable web applications.
-        </div>
-      </div>
+          <div>
+            <h1 className="matias-heading text-5xl md:text-6xl lg:text-[85px] tracking-tighter text-white leading-[1.1]">
+              IT Professional <br/> & Web <br />
+              <span className="matias-text-accent">Developer</span>
+            </h1>
+          </div>
 
-      <div className="indicators">
-        <ul className="list-tags">
-          {skillTags.map((tag, index) => (
-            <li key={index}>
-              <a
-                href="#skills"
-                className="text-sm text-white/70 uppercase tracking-widest hover:text-j-primary transition-colors"
-              >
-                {tag}
-              </a>
-            </li>
-          ))}
-        </ul>
-
-        <div className="indicators-wrap">
-          <div className="indicators-item">
-            <div className="text-sm dot-before indicators-title text-white/70 uppercase tracking-widest">
-              Projects Completed
-            </div>
-            <div className="flex items-center justify-end">
-              <div className="text-5xl md:text-6xl font-bold">{CV_DATA.projects.length}</div>
-              <span className="text-4xl md:text-5xl font-bold">+</span>
+          <div className="mt-12 flex flex-col sm:flex-row items-center gap-8">
+            <div className="flex items-center gap-4 group cursor-pointer">
+              <div className="w-16 h-16 rounded-full border border-white/20 flex items-center justify-center group-hover:border-[#ccff00] transition-colors relative">
+                <Play className="text-white group-hover:text-[#ccff00] transition-colors relative z-10" size={24} fill="currentColor" />
+                <div className="absolute inset-0 bg-[#ccff00]/10 rounded-full scale-0 group-hover:scale-100 transition-transform duration-300"></div>
+              </div>
+              <span className="text-sm tracking-widest uppercase text-white/60 group-hover:text-white transition-colors">Work Process</span>
             </div>
           </div>
-          <div className="indicators-item type-1">
-            <div className="text-sm dot-before indicators-title text-white/70 uppercase tracking-widest">
-              Experience
-            </div>
-            <div className="flex items-center justify-end">
-              <div className="text-5xl md:text-6xl font-bold">1</div>
-              <span className="text-4xl md:text-5xl font-bold">+</span>
-            </div>
-            <div className="text-xs text-white/50 uppercase tracking-widest text-right mt-1">Years</div>
+        </AnimatedSection>
+
+        {/* Right Image */}
+        <AnimatedSection delay={200} className="relative z-10 flex justify-center lg:justify-end">
+          <div className="relative w-full max-w-[500px]">
+            {/* Backdrop glow/decoration for the image */}
+            <div className="absolute inset-0 bg-[#ccff00] opacity-5 blur-[100px] rounded-full"></div>
+            
+            <img 
+              src="/images/IMG_2537.JPG.jpeg" 
+              alt={CV_DATA.name} 
+              className="relative z-10 w-full h-auto object-cover grayscale hover:grayscale-0 transition-all duration-700 ease-in-out"
+              style={{
+                maskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)',
+                WebkitMaskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)'
+              }}
+            />
           </div>
-        </div>
+        </AnimatedSection>
       </div>
+
     </section>
   );
 };

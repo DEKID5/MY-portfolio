@@ -1,56 +1,58 @@
 import React from 'react';
 import { CV_DATA } from '../data';
-import { Building2, Calendar, MapPin } from 'lucide-react';
+import { AnimatedSection } from './AnimatedSection';
 
 export const Experience = () => {
   return (
-    <section className="section-experiences" id="experience">
-      <div className="text-sm dot-before subtitle text-white/70 uppercase tracking-widest mb-6">
-        Experiences
-      </div>
-      <h2 className="desc text-3xl md:text-4xl lg:text-5xl font-bold uppercase tracking-tight leading-tight mb-12">
-        Building scalable digital solutions
-      </h2>
+    <section className="py-24 border-t border-white/10" id="experience">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        
+        {/* Left Column: Heading */}
+        <AnimatedSection className="lg:col-span-5">
+          <div className="matias-subheading">EXPERIENCE</div>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl matias-heading mb-8">
+            Work <br /> <span className="matias-text-accent">History</span>
+          </h2>
+        </AnimatedSection>
 
-      <div className="experiences-wrap">
-        {CV_DATA.experience.map((job, index) => (
-          <div
-            key={index}
-            className="experience-item j-card p-6 md:p-8 mb-6 last:mb-0"
-          >
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6 pb-6 border-b border-white/10">
-              <div>
-                <h3 className="text-2xl md:text-3xl font-bold uppercase tracking-wider mb-2">
-                  {job.role}
-                </h3>
-                <div className="flex flex-wrap items-center gap-4 text-sm text-white/70 uppercase tracking-widest">
-                  <span className="flex items-center gap-2">
-                    <Building2 className="w-4 h-4" /> {job.company}
-                  </span>
-                  <span className="flex items-center gap-2">
-                    <MapPin className="w-4 h-4" /> {job.location}
-                  </span>
+        {/* Right Column: Content */}
+        <div className="lg:col-span-7">
+          <div className="flex flex-col gap-8">
+            {CV_DATA.experience.map((exp, idx) => (
+              <AnimatedSection key={idx} delay={idx * 150} className="relative pl-8 md:pl-0">
+                
+                {/* Timeline line (mobile only) */}
+                <div className="md:hidden absolute left-0 top-2 bottom-0 w-[1px] bg-white/20"></div>
+                <div className="md:hidden absolute left-[-4px] top-2 w-2 h-2 rounded-full matias-bg-accent"></div>
+
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 items-baseline p-8 rounded-2xl bg-matias-card border border-matias-border hover:border-[#ccff00] transition-colors group">
+                  
+                  {/* Period & Location */}
+                  <div className="md:col-span-4 text-white/50 text-sm tracking-widest uppercase font-medium">
+                    {exp.period}
+                    <div className="text-xs mt-1 text-white/30">{exp.location}</div>
+                  </div>
+                  
+                  {/* Role & Company & Details */}
+                  <div className="md:col-span-8">
+                    <h3 className="text-2xl font-bold mb-1 group-hover:text-[#ccff00] transition-colors">{exp.role}</h3>
+                    <div className="text-white/60 mb-6 uppercase tracking-wider text-sm">{exp.company}</div>
+                    
+                    <ul className="flex flex-col gap-4">
+                      {exp.responsibilities.map((resp, rIdx) => (
+                        <li key={rIdx} className="flex gap-3 text-white/70 text-sm leading-relaxed">
+                          <span className="text-[#ccff00] opacity-50 mt-1">▹</span>
+                          <span>{resp}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
                 </div>
-              </div>
-              <div className="flex items-center gap-2 text-j-primary text-sm font-semibold uppercase tracking-widest">
-                <Calendar className="w-4 h-4" />
-                {job.period}
-              </div>
-            </div>
-
-            <ul className="space-y-4">
-              {job.responsibilities.map((resp, idx) => (
-                <li
-                  key={idx}
-                  className="text-white/70 text-base leading-relaxed flex items-start"
-                >
-                  <span className="mr-4 mt-2.5 shrink-0 block w-1.5 h-1.5 rounded-full bg-white/50" />
-                  {resp}
-                </li>
-              ))}
-            </ul>
+              </AnimatedSection>
+            ))}
           </div>
-        ))}
+        </div>
       </div>
     </section>
   );
