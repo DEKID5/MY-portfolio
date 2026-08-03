@@ -24,7 +24,7 @@ export const CV_DATA = {
       name: "E-Commerce Web Application",
       technologies: ["Laravel", "PHP", "JavaScript", "React", "SQL", "HTML", "Vite", "Docker"],
       description: "A fully functional, enterprise-grade e-commerce platform encompassing product catalogue management, shopping cart functionality, and end-to-end order processing workflows.",
-      link: "https://computingshop.vercel.app/",
+      link: "https://techart-laravel.onrender.com",
       details: [
         "Architected a robust RESTful API backend using Laravel and PHP, seamlessly integrated with a dynamic React frontend, optimised for performance via Vite build tooling.",
         "Designed and implemented a normalised relational database schema in SQL to support complex product, user, and transactional data requirements at scale.",
