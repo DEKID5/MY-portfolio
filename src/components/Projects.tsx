@@ -29,7 +29,7 @@ export const Projects = () => {
                   
                   {/* Tech stack tags */}
                   <div className="flex flex-wrap gap-2 mb-8">
-                    {project.technologies.slice(0, 4).map((tech, techIdx) => (
+                    {project.technologies.map((tech, techIdx) => (
                       <span key={techIdx} className="px-3 py-1 rounded-full border border-white/20 text-xs tracking-wider uppercase text-white/70">
                         {tech}
                       </span>
@@ -37,14 +37,27 @@ export const Projects = () => {
                   </div>
                 </div>
 
-                <a 
-                  href={project.link} 
-                  target="_blank" 
-                  rel="noreferrer" 
-                  className="inline-flex items-center gap-2 matias-text-accent uppercase tracking-widest text-sm font-bold w-fit"
-                >
-                  Visit Project <ArrowUpRight size={18} />
-                </a>
+                <div className="flex flex-wrap items-center gap-5 mt-4">
+                  <a 
+                    href={project.link} 
+                    target="_blank" 
+                    rel="noreferrer" 
+                    className="inline-flex items-center gap-2 matias-text-accent uppercase tracking-widest text-sm font-bold w-fit hover:opacity-80 transition-opacity"
+                  >
+                    Visit Project <ArrowUpRight size={18} />
+                  </a>
+
+                  {'secondaryLink' in project && (project as any).secondaryLink && (
+                    <a 
+                      href={(project as any).secondaryLink.url} 
+                      target="_blank" 
+                      rel="noreferrer" 
+                      className="inline-flex items-center gap-2 text-white/70 hover:text-[#ccff00] uppercase tracking-widest text-xs md:text-sm font-semibold w-fit transition-colors"
+                    >
+                      {(project as any).secondaryLink.label} <ArrowUpRight size={16} />
+                    </a>
+                  )}
+                </div>
               </div>
 
               {/* Details Side (replaces image for now to keep content focused) */}

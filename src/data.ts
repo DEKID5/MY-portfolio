@@ -21,6 +21,21 @@ export const CV_DATA = {
   ],
   projects: [
     {
+      name: "Smart UrbanWaste Management System (SUWS)",
+      technologies: ["React", "TypeScript", "Geospatial Routing", "PWA", "Tailwind CSS", "Cloudflare"],
+      description: "A municipal dispatch platform built for Ghana's 261 district assemblies, piloting first with Accra, Ga East, Kumasi, Tema, and Adentan. Real-time geospatial routing for district assemblies, private concessionaires, field crews, and the households they serve.",
+      link: "https://suws-app.pages.dev/",
+      secondaryLink: {
+        label: "Explore Capabilities",
+        url: "https://suws-app.pages.dev/#capabilities"
+      },
+      details: [
+        "Architected a municipal dispatch and monitoring platform for Ghana's 261 district assemblies, providing real-time geospatial routing and live vehicle tracking for assemblies and private concessionaires.",
+        "Engineered role-tailored Progressive Web Apps (PWA) with responsive workflows for municipal officers, field waste collection crews, and household waste scheduling.",
+        "Integrated AI-assisted waste classification, automated dispatch queues, and civic verification pipelines to elevate urban sanitation efficiency and public accountability."
+      ]
+    },
+    {
       name: "E-Commerce Web Application",
       technologies: ["Laravel", "PHP", "JavaScript", "React", "SQL", "HTML", "Vite", "Docker"],
       description: "A fully functional, enterprise-grade e-commerce platform encompassing product catalogue management, shopping cart functionality, and end-to-end order processing workflows.",
@@ -44,16 +59,16 @@ export const CV_DATA = {
     }
   ],
   skills: {
-    programming: ["PHP", "JavaScript", "HTML", "CSS", "SQL"],
-    frameworks: ["Laravel", "React", "Vite"],
+    programming: ["PHP", "JavaScript", "TypeScript", "HTML", "CSS", "SQL"],
+    frameworks: ["Laravel", "React", "Vite", "Tailwind CSS"],
     databases: ["MySQL", "SQL"],
     qa: ["Software Testing", "Quality Assurance", "Functional & Regression Testing"],
-    infrastructure: ["PC & Server Administration", "Hardware Troubleshooting", "Technical Support & Maintenance"],
-    core: ["Full-Stack Web Development", "E-Commerce Solutions", "Responsive UI Engineering", "Problem-Solving", "Cross-Functional Collaboration"]
+    infrastructure: ["PC & Server Administration", "Hardware Troubleshooting", "Technical Support & Maintenance", "Cloudflare Pages"],
+    core: ["Full-Stack Web Development", "Municipal Dispatch Platforms", "E-Commerce Solutions", "Responsive UI Engineering", "Problem-Solving", "Cross-Functional Collaboration"]
   },
   socials: [
     { name: "LinkedIn", url: "https://linkedin.com/in/seth-lokou", icon: "Linkedin" },
-    { name: "GitHub", url: "https://github.com/sethinolokou", icon: "Github" },
+    { name: "GitHub", url: "https://github.com/DEKID5", icon: "Github" },
     { name: "Instagram", url: "https://instagram.com/sethlokou", icon: "Instagram" }
   ],
   testimonials: [
